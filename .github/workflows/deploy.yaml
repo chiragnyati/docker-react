@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: docker login -u chirag.nyati@gmail.com -p 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
+      - run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
       - run: docker build -t docker-react -f Dockerfile.dev .
       - run: docker run -e CI=true docker-react npm test
 
